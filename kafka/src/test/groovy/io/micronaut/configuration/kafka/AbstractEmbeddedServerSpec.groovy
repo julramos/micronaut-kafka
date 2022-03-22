@@ -6,14 +6,13 @@ import org.apache.kafka.clients.admin.AdminClient
 import org.apache.kafka.clients.admin.AdminClientConfig
 import org.apache.kafka.clients.admin.NewTopic
 import org.testcontainers.containers.KafkaContainer
+import org.testcontainers.utility.DockerImageName
 import spock.lang.AutoCleanup
 import spock.lang.Shared
 
-import java.util.stream.Collectors
-
 abstract class AbstractEmbeddedServerSpec extends AbstractKafkaSpec {
 
-    @Shared @AutoCleanup KafkaContainer kafkaContainer = new KafkaContainer()
+    @Shared @AutoCleanup KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka"))
     @Shared @AutoCleanup EmbeddedServer embeddedServer
     @Shared @AutoCleanup ApplicationContext context
 
