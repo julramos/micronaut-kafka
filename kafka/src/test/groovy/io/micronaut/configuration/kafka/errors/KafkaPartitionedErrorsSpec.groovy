@@ -1,10 +1,12 @@
 package io.micronaut.configuration.kafka.errors
 
+import spock.lang.Ignore
 import spock.lang.Stepwise
 
 import java.util.stream.IntStream
 
 @Stepwise
+@Ignore("https://github.com/micronaut-projects/micronaut-kafka/issues/514")
 class KafkaPartitionedErrorsSpec extends KafkaErrorsSpec {
 
     @Override
