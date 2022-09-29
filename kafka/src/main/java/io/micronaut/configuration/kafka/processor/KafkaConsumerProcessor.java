@@ -574,7 +574,7 @@ class KafkaConsumerProcessor
 
                 Duration retryDelay = consumerState.errorStrategyRetryDelay;
                 if (retryDelay != null) {
-                    // in the stop on error strategy, pause the consumer and resume after the retryDelay duration
+                    // in the RETRY_ON_ERROR strategy, pause the consumer and resume after the retryDelay duration
                     Set<TopicPartition> paused = Collections.singleton(topicPartition);
                     consumerState.pause(paused);
                     taskScheduler.schedule(retryDelay, () -> consumerState.resume(paused));
