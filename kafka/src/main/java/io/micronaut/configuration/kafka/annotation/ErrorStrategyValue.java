@@ -27,7 +27,9 @@ package io.micronaut.configuration.kafka.annotation;
 public enum ErrorStrategyValue {
     /**
      * This strategy will stop consuming subsequent records in the case of an error and will
-     * attempt to re-consume the current record indefinitely.
+     * attempt to re-consume the current record according to 
+     * {@link io.micronaut.configuration.kafka.annotation.ErrorStrategy}.retryCount and 
+     * {@link io.micronaut.configuration.kafka.annotation.ErrorStrategy}.retryDelay.
      */
     RETRY_ON_ERROR,
 
